@@ -1,0 +1,17 @@
+# 提示内容
+message:
+  prefix: "&cNBlockScript &f➢ "
+  need-script: "&c请输入脚本名!"
+  wrong-script: "&c脚本不存在!"
+  script-exist: "&c脚本已存在!"
+  create: "&a成功创建新脚本: &f%script%"
+  bind: "&a成功给该方块绑定脚本!"
+  need-type: "&c请输入触发类型!"
+  wrong-type: "&c请输入正确的触发类型!"
+  delete: "&e成功移除脚本: &f%script%"
+  need-model: "&c请输入脚本行内容!"
+  add: "&a成功增加脚本行: &f%model%"
+  remove: "&a已操作!"
+  reload: "&a插件配置重载完成!"
+# 存储时间, 单位: 秒
+save-time: 300
