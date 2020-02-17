@@ -43,6 +43,9 @@ public class ScriptContainer {
 
     public void perform(Player player) {
         if (allow(player)) {
+            for (MainCondition condition : conditions) {
+                condition.execute(player);
+            }
             scriptModels.forEach((model) -> model.perform(player));
         }
     }

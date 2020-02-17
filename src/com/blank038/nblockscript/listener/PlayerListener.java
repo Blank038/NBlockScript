@@ -33,6 +33,5 @@ public class PlayerListener implements Listener {
             event.setCancelled(true);
         }
         long end = System.currentTimeMillis();
-        System.out.println("耗时长: " + (end - start) + "ms");
     }
 }
