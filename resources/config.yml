@@ -12,6 +12,13 @@ message:
   need-model: "&c请输入脚本行内容!"
   add: "&a成功增加脚本行: &f%model%"
   remove: "&a已操作!"
+  condition:
+    check-money: "&c你的经济条件不允许你这么做!"
+    take-money: "&c你没有足够的金币来支付这个脚本!"
+    permission: "&c你没有权限来执行这个脚本!"
+    add-error: "&c条件语句错误, 请检查!"
+    add-success: "&a条件语句增加成功!"
+    remove-success: "&e已操作!"
   reload: "&a插件配置重载完成!"
 # 存储时间, 单位: 秒
 save-time: 300

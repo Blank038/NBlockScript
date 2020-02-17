@@ -49,14 +49,13 @@ public class BindData {
         this.z = location.getZ();
     }
 
-    public void check(Player player, Location location) {
-        if (location != null && !error && location.getLevelBlock().equals(this.location.getLevelBlock())) {
-            if (type.equals(EnumType.INTERACT) || type.equals(EnumType.BREAK)) {
-                NBlockScript.getScriptManager().ignoreTrigger(player, script);
-            } else {
-                NBlockScript.getScriptManager().trigger(player, script);
-            }
+    public boolean check(Player player, Location location, EnumType enumType) {
+        if (location != null && !error && location.getLevelBlock().equals(this.location.getLevelBlock()) && type.equals(enumType)) {
+            if (type.equals(EnumType.WALK)) NBlockScript.getScriptManager().trigger(player, script);
+            else NBlockScript.getScriptManager().ignoreTrigger(player, script);
+            return true;
         }
+        return false;
     }
 
     public void error() {

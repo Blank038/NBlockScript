@@ -5,6 +5,7 @@ import cn.nukkit.plugin.PluginBase;
 import com.blank038.nblockscript.api.NBlockScriptAPI;
 import com.blank038.nblockscript.command.NBSCommand;
 import com.blank038.nblockscript.data.TempLocationData;
+import com.blank038.nblockscript.enums.EnumType;
 import com.blank038.nblockscript.listener.PlayerListener;
 import com.blank038.nblockscript.script.ScriptManager;
 import com.blank038.nblockscript.task.LocationTask;
@@ -47,7 +48,7 @@ public class NBlockScript extends PluginBase {
             for (Map.Entry<UUID, Player> entry : NBlockScript.getInstance().getServer().getOnlinePlayers().entrySet()) {
                 TempLocationData data = getApi().getTempLocationData(entry.getValue());
                 if (data != null && !data.isLock()) {
-                    getApi().checkPlayer(entry.getValue(), data.getLocation());
+                    getApi().checkPlayer(entry.getValue(), data.getLocation(), EnumType.WALK);
                 }
             }
         }, 6, 6);

@@ -67,10 +67,14 @@ public class ScriptManager {
         return scriptMap.containsKey(script);
     }
 
-    public void check(Player player, Location location) {
+    public boolean check(Player player, Location location, EnumType enumType) {
+        boolean check = false;
         for (Map.Entry<String, BindData> entry : bindDataMap.entrySet()) {
-            entry.getValue().check(player, location);
+            if (entry.getValue().check(player, location, enumType)) {
+                check = true;
+            }
         }
+        return check;
     }
 
     public void addBind(String script, Location location, EnumType enumType) {
@@ -108,8 +112,25 @@ public class ScriptManager {
         }
     }
 
+    public boolean addCondition(String script, String condition) {
+        if (scriptMap.containsKey(script)) {
+            return scriptMap.get(script).addCondition(condition);
+        }
+        return false;
+    }
+
+    public void removeCondition(String script, int index) {
+        if (scriptMap.containsKey(script)) {
+            scriptMap.get(script).removeCondition(index);
+        }
+    }
+
     public List<String> getScriptInfo(String script) {
         return scriptMap.containsKey(script) ? scriptMap.get(script).getScripts() : new ArrayList<>();
+    }
+
+    public List<String> getScriptCondition(String script) {
+        return scriptMap.containsKey(script) ? scriptMap.get(script).getCondition() : new ArrayList<>();
     }
 
     public void saveAll() {
