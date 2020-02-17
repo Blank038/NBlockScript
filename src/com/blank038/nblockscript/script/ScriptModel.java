@@ -23,6 +23,7 @@ public class ScriptModel {
                 break;
             case "title":
                 mainModel = new TitleModel(split[1]);
+                break;
             case "action":
                 mainModel = new ActionModel(split[1]);
                 break;

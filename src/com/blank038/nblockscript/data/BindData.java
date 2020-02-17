@@ -50,11 +50,12 @@ public class BindData {
     }
 
     public void check(Player player, Location location) {
-        if (location == null) return;
-        int distance = (int) location.distance(this.location);
-        if (!error && distance == 0) {
-            if (type.equals(EnumType.INTERACT)) NBlockScript.getScriptManager().ignoreTrigger(player, script);
-            else NBlockScript.getScriptManager().trigger(player, script);
+        if (location != null && !error && location.getLevelBlock().equals(this.location.getLevelBlock())) {
+            if (type.equals(EnumType.INTERACT) || type.equals(EnumType.BREAK)) {
+                NBlockScript.getScriptManager().ignoreTrigger(player, script);
+            } else {
+                NBlockScript.getScriptManager().trigger(player, script);
+            }
         }
     }
 

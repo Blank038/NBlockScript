@@ -3,4 +3,4 @@ main: com.blank038.nblockscript.NBlockScript
 api: ["1.0.0"]
 author: Blank038
 description: A BlockScript plugin for Nukkit.
-version: 0.0.1
+version: 0.0.2

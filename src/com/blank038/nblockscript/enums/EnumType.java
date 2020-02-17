@@ -2,13 +2,15 @@ package com.blank038.nblockscript.enums;
 
 public enum EnumType {
     WALK,
+    BREAK,
     INTERACT;
 
     public static EnumType get(String type) {
-        if (type.startsWith("WALK")) {
-            return WALK;
-        } else {
-            return INTERACT;
+        for (EnumType enumType : values()) {
+            if (type.startsWith(enumType.name())) {
+                return enumType;
+            }
         }
+        return INTERACT;
     }
 }

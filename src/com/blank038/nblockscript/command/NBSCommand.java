@@ -27,7 +27,7 @@ public class NBSCommand extends Command {
     public boolean execute(CommandSender commandSender, String s, String[] strings) {
         if (commandSender.hasPermission("nblockscript.admin")) {
             if (strings.length == 0) {
-                MessageUtil.sendMessage(commandSender, MessageUtil.formatMessage(false, "&bNScriptBlock &f命令帮助:",
+                MessageUtil.sendMessage(commandSender, MessageUtil.formatMessage(false, "&bNBlockScript &f命令帮助:",
                         "&c /nbs create <脚本名> &7> 创建一个脚本", "&c /nbs delete <脚本名> &7> 删除对应脚本", "&c /nbs add <脚本> <内容> &7> 对脚本新增脚本内容",
                         "&c /nbs remove <脚本名> <引索> &7> 删除对应行数的脚本", "&c /nbs bind <脚本> <类型> &7> 给准心对准的方块增加脚本",
                         "&c /nbs info <脚本> &7> 查看脚本信息", "&c /nbs run <脚本> [玩家名]&7 > 使玩家执行对应脚本"));
@@ -53,6 +53,10 @@ public class NBSCommand extends Command {
                         break;
                     case "info":
                         info(commandSender, strings);
+                        break;
+                    case "reload":
+                        main.loadConfig();
+                        commandSender.sendMessage(MessageUtil.getConfigString("message.reload", true));
                         break;
                     default:
                         break;
